@@ -21,6 +21,9 @@ public class Sortieralgorithmen {
 	       System.out.print(unsortiert[i] +", ");
 	    }	
 		
+//		int[] unsortiert = {10,9,8,7,6,5,4,3,2,1,0};		
+		
+		System.out.println(" ");
 		System.out.println(" ");
 		System.out.println("Sortiert nach Bubblesort: ");
 		final long timeStart = System.nanoTime();	
@@ -48,7 +51,16 @@ public class Sortieralgorithmen {
 		int[] sortiert3 = quicksort(unsortiert);
 		final long timeEnd3 = System.nanoTime();
 		System.out.println("Verlaufszeit der Schleife: " + (timeEnd3 - timeStart3) + " ns");
+		
+		
 		System.out.println(" ");
+		System.out.println("Sortiert nach Mergesort: ");
+		final long timeStart4 = System.nanoTime();
+		int[] sortiert4 = quicksort(unsortiert);
+		final long timeEnd4 = System.nanoTime();
+		System.out.println("Verlaufszeit der Schleife: " + (timeEnd4 - timeStart4) + " ns");
+		System.out.println(" ");
+		
 		
 		for (int i = 0; i < sortiert.length; i++) {
 
@@ -62,9 +74,15 @@ public class Sortieralgorithmen {
 
 		}
 		
+		System.out.println("Die Sortierte Liste : ");
+		
 		for (int i = 0; i < sortiert3.length; i++) {
 		
-			System.out.print(sortiert3[i] + ", ");
+			System.out.print(sortiert3[i] + " | ");
+		}
+		
+		for (int i = 0; i < sortiert4.length; i++) {
+
 		}
 	}	
 		public static int[] bubblesort(int[] sortieren) {
@@ -145,4 +163,31 @@ public class Sortieralgorithmen {
 			_quicksort(leftIndex, i - 1, sortieren);
 			_quicksort( i + 1, rightIndex, sortieren);
 		}
+		
+		 public int[] sort(int l, int r, int[] sortieren) { 
+	         
+		        return sortieren; 
+		    } 
+
+		    @SuppressWarnings("unused")
+			private void merge( int l,  int q,  int r, int[] sortieren) { 
+		        int i, j; 
+		        for (i = l; i <= q; i++) { 
+		        	sortieren[i] = sortieren[i]; 
+		        } 
+		        for (j = q + 1; j <= r; j++) { 
+		        	sortieren[r + q + 1 - j] = sortieren[j]; 
+		        } 
+		        i = l; 
+		        j = r; 
+		        for (int k = l; k <= r; k++) { 
+		            if (sortieren[i] <= sortieren[j]) { 
+		            	sortieren[k] = sortieren[i]; 
+		                i++; 
+		            } else { 
+		            	sortieren[k] = sortieren[j]; 
+		                j--; 
+		            } 
+		        } 
+		    } 
 }
